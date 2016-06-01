@@ -1,0 +1,55 @@
+<form method="post" action="">
+	{% csrf_token %}
+
+	<table align="left" border="1" cellpadding="1" cellspacing="1" style="width: 500px">
+		<caption>New flight</caption>
+		<tbody>
+			<!--<tr>-->
+				<!--<td>flight</td>-->
+				<!--<td><input maxlength="10" name="reis" size="10" type="text" value=""></td>-->
+			<!--</tr>-->
+			<tr>
+				<td>Airlines</td>
+				<td><select name="avia">
+					{% for row in airlines %}
+						<option value="{{row.id}}">{{row}}</option>
+					{% endfor %}
+				</select></td>
+			</tr>
+			<tr>
+				<td>Departure</td>
+				<td><select name="city_out">
+					{% for row in departure %}
+						<option value="{{row.id}}">{{row}}</option>
+					{% endfor %}
+				</select></td>
+			</tr>
+			<tr>
+				<td>Destination</td>
+				<td><select name="city_in">
+					{% for row in destination %}
+						<option value="{{row.id}}">{{row}}</option>
+					{% endfor %}
+				</select></td>
+			</tr>
+			<tr>
+				<td>plane</td>
+				<td><select name="plane">
+				{% for row in planes %}
+						<option value="{{row.id}}">{{row}}</option>
+				{% endfor %}
+				</select></td>
+			</tr>
+			<tr>
+				<td>Date of departure</td>
+				<td><input type="date" name="date_out"></td>
+			</tr>
+
+			<tr>
+				<td><input name="ins" type="submit" value="Save"></td>
+				<td><input name="del" type="reset" value="Discard"></td>
+			</tr>
+		</tbody>
+	</table>
+
+</form>

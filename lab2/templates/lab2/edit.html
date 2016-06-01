@@ -1,0 +1,71 @@
+<form method="post" action="">
+	{% csrf_token %}
+
+	<table align="left" border="1" cellpadding="1" cellspacing="1" style="width: 500px">
+		<caption>New flight</caption>
+		<tbody>
+			<!--<tr>-->
+				<!--<td>flight</td>-->
+				<!--<td><input maxlength="10" name="reis" size="10" type="text" value=""></td>-->
+			<!--</tr>-->
+			<tr>
+				<td>Airlines</td>
+				<td><select name="avia">
+					{% for row in airlines %}
+                        {% if query.1 == row.0 %}
+                            <option value="{{row.0}}" selected>{{row.1}}</option>
+                        {% else %}
+                            <option value="{{row.0}}">{{row.1}}</option>
+                        {% endif%}
+					{% endfor %}
+				</select></td>
+			</tr>
+			<tr>
+				<td>Departure</td>
+				<td><select name="city_out">
+					{% for row in airports %}
+                        {% if query.2 == row.0 %}
+                            <option value="{{row.0}}" selected>{{row.1}}</option>
+                        {% else %}
+                            <option value="{{row.0}}">{{row.1}}</option>
+                        {% endif%}
+					{% endfor %}
+				</select></td>
+			</tr>
+			<tr>
+				<td>Departure</td>
+				<td><select name="city_in">
+					{% for row in airports %}
+                        {% if query.3 == row.0 %}
+                            <option value="{{row.0}}" selected>{{row.1}}</option>
+                        {% else %}
+                            <option value="{{row.0}}">{{row.1}}</option>
+                        {% endif%}
+					{% endfor %}
+				</select></td>
+			</tr>
+			<tr>
+				<td>plane</td>
+				<td><select name="plane">
+				{% for row in planes %}
+                        {% if query.4 == row.0 %}
+                            <option value="{{row.0}}" selected>{{row.1}}</option>
+                        {% else %}
+                            <option value="{{row.0}}">{{row.1}}</option>
+                        {% endif%}
+				{% endfor %}
+                </select></td>
+			</tr>
+			<tr>
+				<td>Date of departure</td>
+				<td><input type="date"  name="date_out" ></td>
+			</tr>
+
+			<tr>
+				<td><input name="ins" type="submit" value="Save"></td>
+				<td><input name="del" type="reset" value="Discard"></td>
+			</tr>
+		</tbody>
+	</table>
+
+</form>

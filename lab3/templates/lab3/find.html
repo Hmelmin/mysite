@@ -1,0 +1,53 @@
+<form method="post" action="">
+	{% csrf_token %}
+<table align="left" border="1" cellpadding="1" cellspacing="1" style="width: 500px">
+	<caption>Search</caption>
+	<tbody>
+		<tr>
+			<td>Departure</td>
+			<td>
+				{% for row in departure %}
+				<input type="checkbox" name="city_out" value="{{row.id}}" >
+				<label>{{ row }}</label>
+				{% endfor %}
+
+			</td>
+
+		</tr>
+		<tr>
+			<td>Destination</td>
+			<td>
+				{% for row in destination %}
+				<input type="checkbox" name="city_in" value="{{row.id}}" >
+				<label>{{ row }}</label>
+				{% endfor %}
+
+			</td>
+
+		</tr>
+		<tr>
+			<td>Date</td>
+				<td><input type="date"  name="date1" >
+			<td>Date</td>
+				<td><input type="date"  name="date2" ></td>
+
+		</tr>
+		<tr>
+			<td>Plane</td>
+			<td><input maxlength="15" name="plane" size="15" type="text"></td>
+
+		</tr>
+		<tr>
+			<td>Airline</td>
+			<td><input maxlength="20" name="airline" size="15" type="text"></td>
+
+		</tr>
+		<tr>
+			<td><input name="seek" type="submit" value="Search"></td>
+
+		</tr>
+
+	</tbody>
+</table>
+
+</form>
